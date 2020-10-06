@@ -46,7 +46,9 @@ function Form() {
   const [ values, setValue ] = React.useState(new Array(COUNT_OF_INPUTS).fill( '' ));
 
   const changeValue = ( key, value ) => {
-    setValue( values.map( ( v, k ) => k === key ? value : v  ) );
+    setValue( ( currentValues ) => {
+      return currentValues.map( ( v, k ) => k === key ? value : v  )
+    } );
   }
 
   return  <form>
